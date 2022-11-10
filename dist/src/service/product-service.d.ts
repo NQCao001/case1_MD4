@@ -4,4 +4,8 @@ export declare class ProductService {
     constructor();
     findAll: (req: Request, res: Response) => Promise<any>;
     saveProduct: (req: Request, res: Response) => Promise<void>;
+    findById: (req: Request, res: Response) => Promise<any>;
+    editProduct: (req: Request, res: Response) => Promise<void>;
+    deleteProduct: (req: Request, res: Response) => Promise<void>;
+    searchProduct: (key: any) => Promise<any>;
 }

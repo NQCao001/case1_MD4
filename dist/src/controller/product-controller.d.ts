@@ -7,6 +7,9 @@ export declare class ProductController {
     showFormCreate: (req: Request, res: Response) => Promise<void>;
     createProduct: (req: Request, res: Response) => Promise<void>;
     showFormEdit: (req: Request, res: Response) => Promise<void>;
+    editP: (req: Request, res: Response) => Promise<void>;
+    deleteP: (req: Request, res: Response) => Promise<void>;
+    searchP: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: ProductController;
 export default _default;

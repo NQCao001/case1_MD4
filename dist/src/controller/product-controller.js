@@ -18,8 +18,22 @@ class ProductController {
             await this.productService.saveProduct(req, res);
         };
         this.showFormEdit = async (req, res) => {
+            if (!isNaN(+req.params.id)) {
+                let product = await this.productService.findById(req, res);
+                let categories = await this.categoryService.findAll();
+                res.render('product/edit', { product: product, categories: categories });
+            }
+        };
+        this.editP = async (req, res) => {
+            await this.productService.editProduct(req, res);
+        };
+        this.deleteP = async (req, res) => {
+            await this.productService.deleteProduct(req, res);
+        };
+        this.searchP = async (req, res) => {
             let categories = await this.categoryService.findAll();
-            res.render('product/edit', { categories: categories });
+            let products = await this.productService.searchProduct(req.body.name);
+            res.render('product/list', { listProduct: products, Categories: categories });
         };
         this.productService = new product_service_1.ProductService();
         this.categoryService = new category_service_1.CategoryService();

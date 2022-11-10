@@ -185,7 +185,7 @@
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Create
+               Edit
             </h2>
         </div>
         <div class="container-fluid pt-5">
@@ -193,7 +193,7 @@
                 <div class="col-lg-7 mb-5">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form action="/create" method="post" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="control-group">
                                 <input type="text" class="form-control" id="name" placeholder=" Name" name="name"
                                        required="required" data-validation-required-message="Please enter name" />
@@ -215,7 +215,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <select name="category">
+                                <select name="idCategory">
                                     <% for (let i=0;i<categories.length;i++){%>
                                     <option value="<%=categories[i].id%>"><%=categories[i].name%></option>
                                     <%}%>
@@ -228,7 +228,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Create</button>
+                                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Edit</button>
                             </div>
                         </form>
                     </div>

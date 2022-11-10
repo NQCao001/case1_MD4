@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<%-include ('../patial/style.ejs')%>
+<%- include ('../patial/style.ejs') %>
 
 <body>
 
@@ -25,12 +25,19 @@
                 </span>
                         </a>
                     </div>
-                    <from class="search_form">
-                        <input type="text" class="form-control" placeholder="Search here...">
-                        <button class="" type="submit">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                    </from>
+                    <div class="col-lg-6 col-6 text-left">
+                        <form method="post" enctype="multipart/form-data" >
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for products" name="name">
+                                <div class="input-group-append">
+                                        <button type="submit"><span
+                                                    class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="user_option_box">
                         <a href="" class="account-link">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -58,7 +65,9 @@
               </span>
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class=""> </span>
                     </button>
 
@@ -99,7 +108,8 @@
                                         Welcome to our shop
                                     </h1>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe
+                                        dolorem deserunt quo quidem ad optio.
                                     </p>
                                     <a href="">
                                         Read More
@@ -123,7 +133,8 @@
                                         Welcome to our shop
                                     </h1>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe
+                                        dolorem deserunt quo quidem ad optio.
                                     </p>
                                     <a href="">
                                         Read More
@@ -147,7 +158,8 @@
                                         Welcome to our shop
                                     </h1>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe
+                                        dolorem deserunt quo quidem ad optio.
                                     </p>
                                     <a href="">
                                         Read More
@@ -188,51 +200,57 @@
                 Our Products
             </h2>
         </div>
-<div class="row">
-    <div class="col-3 d-none d-lg-block">
-           <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px; width: 180px;">
-               <h6 class="m-0">Categories</h6>
-               <i class="fa fa-angle-down text-dark"></i>
-           </a>
-           <nav style="width: 180px" class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-               <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                   <%for (let i=0;i<Categories.length;i++){%>
-                   <a href="" class="nav-item nav-link"><%=Categories[i].name%></a>
-                   <%}%>
-               </div>
-           </nav>
-    </div>
-    <div class="col-9"><div class="row">
-            <%for(let i = 0;i<listProduct.length;i++){%>
-            <div class="col-sm-6 col-lg-4">
-                <div class="box">
-                    <div class="img-box">
-                        <img src="<%=listProduct[i].image%>" alt="">
-                        <a href="" class="add_cart_btn">
+        <div class="row">
+            <div class="col-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white"
+                   data-toggle="collapse" href="#navbar-vertical"
+                   style="height: 65px; margin-top: -1px; padding: 0 30px; width: 180px;">
+                    <h6 class="m-0">Categories</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav style="width: 180px"
+                     class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
+                     id="navbar-vertical">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                        <% for (let i = 0;i < Categories.length;i++){ %>
+                        <a href="" class="nav-item nav-link"><%= Categories[i].name %></a>
+                        <% } %>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <% for(let i = 0;i < listProduct.length;i++){ %>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="<%= listProduct[i].image %>" alt="">
+                                <a href="" class="add_cart_btn">
                 <span>
                   Add To Cart
                 </span>
-                        </a>
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            <%=listProduct[i].name%>
-                        </h5>
-                        <div class="product_info">
-                            <h5>
-                                <span>$</span> <%=listProduct[i].price%>
-                            </h5>
-                            <div class="star_container">
-                                <a href="/edit/<%=listProduct[i].id%>">Edit</a><br>
-                                <a href="/delete/<%=listProduct[i].id%>">Delete</a>
+                                </a>
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    <%= listProduct[i].name %>
+                                </h5>
+                                <div class="product_info">
+                                    <h5>
+                                        <span>$</span> <%= listProduct[i].price %>
+                                    </h5>
+                                    <div class="star_container">
+                                        <a href="/edit/<%= listProduct[i].id %>">Edit</a><br>
+                                        <a href="/delete/<%= listProduct[i].id %>">Delete</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <% } %>
                 </div>
             </div>
-            <%}%>
-        </div></div>
-</div>
+        </div>
         <div class="btn_box">
             <a href="" class="view_more-link">
                 View More
@@ -256,8 +274,12 @@
                         </h2>
                     </div>
                     <p>
-                        Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio ab facilis sit labore officia!
-                        Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas possimus eveniet facilis magnam? Vero, dicta.
+                        Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita
+                        maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio
+                        ab facilis sit labore officia!
+                        Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas
+                        consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas
+                        possimus eveniet facilis magnam? Vero, dicta.
                     </p>
                     <a href="">
                         Read More
@@ -358,12 +380,18 @@
                                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                                 </p>
                                 <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                                    long established fact that a reader will be distracted by the readable content of a page when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page
+                                    when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                    more-or-less normal
+                                    distribution of letters, as opposed to using 'Content here, content here', making it
+                                    lookIt is a
+                                    long established fact that a reader will be distracted by the readable content of a
+                                    page when
+                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                                    normal
+                                    distribution of letters, as opposed to using 'Content here, content here', making it
+                                    look
                                 </p>
                             </div>
                             <div class="client-id">
@@ -390,12 +418,18 @@
                                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                                 </p>
                                 <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                                    long established fact that a reader will be distracted by the readable content of a page when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page
+                                    when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                    more-or-less normal
+                                    distribution of letters, as opposed to using 'Content here, content here', making it
+                                    lookIt is a
+                                    long established fact that a reader will be distracted by the readable content of a
+                                    page when
+                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                                    normal
+                                    distribution of letters, as opposed to using 'Content here, content here', making it
+                                    look
                                 </p>
                             </div>
                             <div class="client-id">
@@ -422,12 +456,18 @@
                                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                                 </p>
                                 <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                                    long established fact that a reader will be distracted by the readable content of a page when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                                    It is a long established fact that a reader will be distracted by the readable
+                                    content of a page
+                                    when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                    more-or-less normal
+                                    distribution of letters, as opposed to using 'Content here, content here', making it
+                                    lookIt is a
+                                    long established fact that a reader will be distracted by the readable content of a
+                                    page when
+                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                                    normal
+                                    distribution of letters, as opposed to using 'Content here, content here', making it
+                                    look
                                 </p>
                             </div>
                             <div class="client-id">
@@ -499,7 +539,8 @@
                         Information
                     </h5>
                     <p>
-                        Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+                        Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim
+                        nulla iste maxime corrupti ad illo libero minus.
                     </p>
                 </div>
             </div>
@@ -582,7 +623,7 @@
 </footer>
 <!-- footer section -->
 
-<%-include ('../patial/java.ejs')%>
+<%- include ('../patial/java.ejs') %>
 
 
 </body>

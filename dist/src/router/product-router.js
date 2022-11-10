@@ -11,4 +11,7 @@ exports.routerProduct.get('/product', product_controller_1.default.getAll);
 exports.routerProduct.get('/create', product_controller_1.default.showFormCreate);
 exports.routerProduct.post('/create', product_controller_1.default.createProduct);
 exports.routerProduct.get('/edit/:id', product_controller_1.default.showFormEdit);
+exports.routerProduct.post('/edit/:id', product_controller_1.default.editP);
+exports.routerProduct.get('/delete/:id', product_controller_1.default.deleteP);
+exports.routerProduct.post('/product', product_controller_1.default.searchP);
 //# sourceMappingURL=product-router.js.map

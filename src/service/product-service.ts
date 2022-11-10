@@ -21,13 +21,38 @@ export class ProductService {
         let files=req.files
         if(files!=null){
             let product=req.body
-            console.log(product)
             let image = files.file as UploadedFile;
             await image.mv('./public/IMG/'+image.name);
             product.image='IMG/'+image.name;
             await this.productRepository.save(product);
             res.redirect(301,'/product');
         }
-
+    }
+    findById = async (req:Request,res:Response)=>{
+        let id = +req.params.id
+        return await this.productRepository.findOneBy({id:id})
+    }
+    editProduct =  async (req: Request, res: Response) => {
+        let files=req.files
+        let id = +req.params.id
+        if(files!=null){
+            let product=req.body
+            let image = files.file as UploadedFile;
+            await image.mv('./public/IMG/'+image.name);
+            product.image='IMG/'+image.name;
+            await this.productRepository.update({id: id},product);
+            res.redirect(301,'/product');
+        }
+    }
+    deleteProduct = async (req: Request, res: Response) => {
+        let id = +req.params.id
+        let product = await this.productRepository.findOneBy({id:id})
+        if(product){
+            await this.productRepository.delete({id: id});
+            res.redirect(301,'/product');
+        }else {}
+    }
+    searchProduct= async (key)=>{
+        return await this.productRepository.query(`select * from product where name like '%${key}%'`)
     }
 }
