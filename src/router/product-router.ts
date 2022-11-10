@@ -7,4 +7,5 @@ routerProduct.post('/create',productController.createProduct);
 routerProduct.get('/edit/:id',productController.showFormEdit);
 routerProduct.post('/edit/:id',productController.editP);
 routerProduct.get('/delete/:id',productController.deleteP);
-routerProduct.post('/product',productController.searchP)
+routerProduct.post('/product',productController.searchP);
+routerProduct.get('/category/:id',productController.showProductCategory)

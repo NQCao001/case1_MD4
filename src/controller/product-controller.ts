@@ -42,6 +42,11 @@ export class ProductController {
         let products=await this.productService.searchProduct(req.body.name)
         res.render('product/list', {listProduct: products, Categories: categories})
     }
+    showProductCategory = async (req: Request, res: Response) => {
+        let categories = await this.categoryService.findAll();
+        let products=await this.productService.findProductByIdCategory(req.params.id)
+        res.render('product/list', {listProduct: products, Categories: categories})
+    }
 }
 
 export default new ProductController();

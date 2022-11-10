@@ -10,6 +10,7 @@ export declare class ProductController {
     editP: (req: Request, res: Response) => Promise<void>;
     deleteP: (req: Request, res: Response) => Promise<void>;
     searchP: (req: Request, res: Response) => Promise<void>;
+    showProductCategory: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: ProductController;
 export default _default;

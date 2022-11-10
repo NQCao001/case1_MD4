@@ -8,4 +8,5 @@ export declare class ProductService {
     editProduct: (req: Request, res: Response) => Promise<void>;
     deleteProduct: (req: Request, res: Response) => Promise<void>;
     searchProduct: (key: any) => Promise<any>;
+    findProductByIdCategory: (id: any) => Promise<any>;
 }

@@ -55,4 +55,7 @@ export class ProductService {
     searchProduct= async (key)=>{
         return await this.productRepository.query(`select * from product where name like '%${key}%'`)
     }
+    findProductByIdCategory = async (id) => {
+        return await this.productRepository.query(`select *from product where idCategoryId='${id}'`)
+    }
 }

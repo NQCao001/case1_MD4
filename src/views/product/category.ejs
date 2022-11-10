@@ -30,58 +30,58 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search for products" name="name">
                                 <div class="input-group-append">
-                                        <button type="submit"><span
-                                                    class="input-group-text bg-transparent text-primary">
+                                    <button type="submit"><span
+                                                class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
                             </span></button>
-                        <a href="" class="cart-link">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <span>
+                                    <a href="" class="cart-link">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        <span>
                   Cart
                 </span>
-                        </a>
+                                    </a>
+                                </div>
+                            </div>
+
                     </div>
                 </div>
-
-            </div>
-        </div>
-        <div class="header_bottom">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
+                <div class="header_bottom">
+                    <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg custom_nav-container ">
+                            <a class="navbar-brand" href="index.html">
               <span>
                 Minics
               </span>
-                    </a>
+                            </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class=""> </span>
-                    </button>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class=""> </span>
+                            </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/create"> Create</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/product">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="why.html">Why Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="testimonial.html">Testimonial</a>
-                            </li>
-                        </ul>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/create"> Create</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/product">Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="why.html">Why Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="testimonial.html">Testimonial</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
-                </nav>
-            </div>
-        </div>
+                </div>
     </header>
     <!-- end header section -->
     <!-- slider section -->
@@ -210,32 +210,32 @@
             <div class="col-9">
                 <div class="row">
                     <% for(let i = 0;i < listProduct.length;i++){ %>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="<%= listProduct[i].image %>" alt="">
-                                <a href="" class="add_cart_btn">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="<%= listProduct[i].image %>" alt="">
+                                    <a href="" class="add_cart_btn">
                 <span>
                   Add To Cart
                 </span>
-                                </a>
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    <%= listProduct[i].name %>
-                                </h5>
-                                <div class="product_info">
+                                    </a>
+                                </div>
+                                <div class="detail-box">
                                     <h5>
-                                        <span>$</span> <%= listProduct[i].price %>
+                                        <%= listProduct[i].name %>
                                     </h5>
-                                    <div class="star_container">
-                                        <a href="/edit/<%= listProduct[i].id %>">Edit</a><br>
-                                        <a href="/delete/<%= listProduct[i].id %>">Delete</a>
+                                    <div class="product_info">
+                                        <h5>
+                                            <span>$</span> <%= listProduct[i].price %>
+                                        </h5>
+                                        <div class="star_container">
+                                            <a href="/edit/<%= listProduct[i].id %>">Edit</a><br>
+                                            <a href="/delete/<%= listProduct[i].id %>">Delete</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <% } %>
                 </div>
             </div>

@@ -48,6 +48,9 @@ class ProductService {
         this.searchProduct = async (key) => {
             return await this.productRepository.query(`select * from product where name like '%${key}%'`);
         };
+        this.findProductByIdCategory = async (id) => {
+            return await this.productRepository.query(`select *from product where idCategoryId='${id}'`);
+        };
         data_source_1.AppDataSource.initialize().then(async (connection) => {
             console.log('Connect success Data product!!!');
             this.productRepository = await connection.getRepository(product_1.Product);
