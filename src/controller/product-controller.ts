@@ -1,10 +1,12 @@
 import {ProductService} from "../service/product-service";
 import {Request, Response} from "express";
 import {CategoryService} from "../service/category-service";
+import {CartService} from "../service/cart-service";
 
 export class ProductController {
     private productService: ProductService;
     private categoryService: CategoryService;
+    private cartService: CartService;
 
     constructor() {
         this.productService = new ProductService();
@@ -46,6 +48,11 @@ export class ProductController {
         let categories = await this.categoryService.findAll();
         let products=await this.productService.findProductByIdCategory(req.params.id)
         res.render('product/list', {listProduct: products, Categories: categories})
+    }
+    showCart = async (req: Request, res: Response)=>{
+        let products=await this.productService.addProduct(req,res)
+        console.log(products)
+        res.render('product/list', {listProduct: products})
     }
 }
 

@@ -194,37 +194,37 @@
                     <div class="contact-form">
                         <div id="success"></div>
                         <form method="post" enctype="multipart/form-data">
-                            <div class="control-group">
+                            <div class="control-group">Name:<br>
                                 <input type="text" class="form-control" id="name" placeholder=" Name" name="name"
-                                       required="required" data-validation-required-message="Please enter name" />
+                                       required="required" data-validation-required-message="Please enter name" value="<%=product.name%>">
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control" id="email" placeholder="Price" name="price"
-                                       required="required" data-validation-required-message="Please enter Price" />
+                            <div class="control-group">Price:<br>
+                                <input type="text" class="form-control" id="subject" placeholder="Price" name="price"
+                                       required="required" data-validation-required-message="Please enter Price" value="<%=product.price%>">
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group">Quantity<br>
                                 <input type="text" class="form-control" id="subject" placeholder="Quantity" name="quantity"
-                                       required="required" data-validation-required-message="Please enter quantity" />
+                                       required="required" data-validation-required-message="Please enter quantity" value="<%=product.quantity%>">
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group">Upload file:<br>
                                 <input type="file" class="form-control" id="subject" name="file"
-                                       required="required" data-validation-required-message="Please enter quantity" />
+                                       required="required" data-validation-required-message="Please enter file">
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group">Select:<br>
                                 <select name="idCategory">
                                     <% for (let i=0;i<categories.length;i++){%>
                                     <option value="<%=categories[i].id%>"><%=categories[i].name%></option>
                                     <%}%>
                                 </select>
                             </div><br>
-                            <div class="control-group">
+                            <div class="control-group">Description:<br>
                             <textarea class="form-control" rows="6" id="message" placeholder="Description" name="description"
                                       required="required"
-                                      data-validation-required-message="Please enter your message"></textarea>
+                                      data-validation-required-message="Please enter your message"><%=product.description%></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
@@ -512,7 +512,7 @@
                     </h5>
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="/product">
                                 Home
                             </a>
                         </li>

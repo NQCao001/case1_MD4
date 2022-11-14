@@ -40,6 +40,11 @@ class ProductController {
             let products = await this.productService.findProductByIdCategory(req.params.id);
             res.render('product/list', { listProduct: products, Categories: categories });
         };
+        this.showCart = async (req, res) => {
+            let products = await this.productService.addProduct(req, res);
+            console.log(products);
+            res.render('product/list', { listProduct: products });
+        };
         this.productService = new product_service_1.ProductService();
         this.categoryService = new category_service_1.CategoryService();
     }

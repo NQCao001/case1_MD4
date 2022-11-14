@@ -1,5 +1,4 @@
 import {AppDataSource} from "../data source";
-import {Request, Response} from "express";
 import {Category} from "../model/category";
 
 export class CategoryService{

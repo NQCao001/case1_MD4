@@ -15,4 +15,5 @@ exports.routerProduct.post('/edit/:id', product_controller_1.default.editP);
 exports.routerProduct.get('/delete/:id', product_controller_1.default.deleteP);
 exports.routerProduct.post('/product', product_controller_1.default.searchP);
 exports.routerProduct.get('/category/:id', product_controller_1.default.showProductCategory);
+exports.routerProduct.post('/addCart/:id', product_controller_1.default.showCart);
 //# sourceMappingURL=product-router.js.map

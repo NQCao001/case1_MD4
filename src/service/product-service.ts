@@ -23,7 +23,7 @@ export class ProductService {
             let product=req.body
             let image = files.file as UploadedFile;
             await image.mv('./public/IMG/'+image.name);
-            product.image='IMG/'+image.name;
+            product.image='/IMG/'+image.name;
             await this.productRepository.save(product);
             res.redirect(301,'/product');
         }
@@ -39,7 +39,7 @@ export class ProductService {
             let product=req.body
             let image = files.file as UploadedFile;
             await image.mv('./public/IMG/'+image.name);
-            product.image='IMG/'+image.name;
+            product.image='/IMG/'+image.name;
             await this.productRepository.update({id: id},product);
             res.redirect(301,'/product');
         }
@@ -56,6 +56,13 @@ export class ProductService {
         return await this.productRepository.query(`select * from product where name like '%${key}%'`)
     }
     findProductByIdCategory = async (id) => {
-        return await this.productRepository.query(`select *from product where idCategoryId='${id}'`)
+        return await this.productRepository.query(`select * from product where idCategoryId='${id}'`)
+    }
+    addProduct = async (req: Request, res: Response)=>{
+        let id = +req.params.id
+        console.log(id)
+        let product = await this.productRepository.findOneBy({id:id})
+        console.log(product)
+        // return await this.productRepository.query(`insert into cart(name,quantity) values()`)
     }
 }
